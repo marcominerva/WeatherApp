@@ -6,6 +6,7 @@ using Polly;
 using System;
 using System.Reflection;
 using WeatherApp.Settings;
+using WeatherApp.Xamarin.Logging;
 using Xamarin.Essentials;
 
 namespace WeatherApp.Xamarin
@@ -33,10 +34,11 @@ namespace WeatherApp.Xamarin
                             // Configure our local services and access the host configuration.
                             ConfigureServices(context, services);
                         })
-                        .ConfigureLogging(logging =>
+                        .ConfigureLogging((hostingContext, loggerConfiguration) =>
                         {
-                            logging.AddDebug();
-                            //logging.AddProvider(new AppCenterLoggerProvider());
+                            loggerConfiguration.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                            loggerConfiguration.AddDebug();
+                            loggerConfiguration.AddProvider(new AppCenterLoggerProvider());
                         })
                         .Build();
 

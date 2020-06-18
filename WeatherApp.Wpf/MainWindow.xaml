@@ -52,8 +52,8 @@
                 <TextBlock x:Name="ConditionCityTextBlock" Style="{StaticResource ConditionTextBlockStyle}" />
                 <Image
                     x:Name="ConditionImage"
-                    Width="96"
-                    Height="93" />
+                    Width="100"
+                    Height="100" />
                 <TextBlock x:Name="ConditionTextBlock" Style="{StaticResource ConditionTextBlockStyle}" />
                 <TextBlock x:Name="TemperatureTextBlock" Style="{StaticResource ConditionTextBlockStyle}" />
             </StackPanel>
