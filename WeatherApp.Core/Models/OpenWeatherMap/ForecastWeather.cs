@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace WeatherApp.Models.OpenWeatherMap
+namespace WeatherApp.Core.Models.OpenWeatherMap
 {
     public class ForecastWeather
     {

@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace WeatherApp.Models.OpenWeatherMap.Converters
+namespace WeatherApp.Core.Models.OpenWeatherMap.Converters
 {
     public class UnixToDateTimeConverter : JsonConverter<DateTime>
     {

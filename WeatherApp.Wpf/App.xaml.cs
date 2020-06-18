@@ -5,7 +5,8 @@ using Polly;
 using Serilog;
 using System;
 using System.Windows;
-using WeatherApp.Settings;
+using WeatherApp.Core;
+using WeatherApp.Core.Settings;
 
 namespace WeatherApp.Wpf
 {

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Text.Json;
-using WeatherApp.Models.OpenWeatherMap;
+using WeatherApp.Core.Models.OpenWeatherMap;
 
-namespace WeatherApp.Models
+namespace WeatherApp.Core.Models
 {
     public class Weather
     {

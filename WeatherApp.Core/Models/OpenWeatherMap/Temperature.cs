@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace WeatherApp.Models.OpenWeatherMap
+namespace WeatherApp.Core.Models.OpenWeatherMap
 {
     public class Temperature
     {

@@ -6,7 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Polly;
 using Serilog;
 using System;
-using WeatherApp.Settings;
+using WeatherApp.Core;
+using WeatherApp.Core.Settings;
 
 namespace WeatherApp.Web
 {

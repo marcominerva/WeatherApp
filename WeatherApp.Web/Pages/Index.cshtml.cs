@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
-using WeatherApp.Models;
+using WeatherApp.Core;
+using WeatherApp.Core.Models;
 
 namespace WeatherApp.Web.Pages
 {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using WeatherApp.Models.OpenWeatherMap.Converters;
+using WeatherApp.Core.Models.OpenWeatherMap.Converters;
 
-namespace WeatherApp.Models.OpenWeatherMap
+namespace WeatherApp.Core.Models.OpenWeatherMap
 {
     public class ForecastWeatherData
     {

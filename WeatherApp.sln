@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.Web", "WeatherApp.Web\WeatherApp.Web.csproj", "{37367195-FC98-42C8-8622-937B19B2DF63}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp", "WeatherApp\WeatherApp.csproj", "{4347A470-88ED-4E36-8C14-4C65E0EE2258}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.Core", "WeatherApp.Core\WeatherApp.Core.csproj", "{4347A470-88ED-4E36-8C14-4C65E0EE2258}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.Wpf", "WeatherApp.Wpf\WeatherApp.Wpf.csproj", "{F8050EC8-48D9-49F4-B79D-0DDC72B9B2F3}"
 EndProject

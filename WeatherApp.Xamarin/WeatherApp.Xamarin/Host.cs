@@ -5,7 +5,8 @@ using Microsoft.Extensions.Logging;
 using Polly;
 using System;
 using System.Reflection;
-using WeatherApp.Settings;
+using WeatherApp.Core;
+using WeatherApp.Core.Settings;
 using WeatherApp.Xamarin.Logging;
 using Xamarin.Essentials;
 

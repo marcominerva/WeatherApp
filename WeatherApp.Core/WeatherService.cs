@@ -4,11 +4,11 @@ using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using WeatherApp.Models;
-using WeatherApp.Models.OpenWeatherMap;
-using WeatherApp.Settings;
+using WeatherApp.Core.Models;
+using WeatherApp.Core.Models.OpenWeatherMap;
+using WeatherApp.Core.Settings;
 
-namespace WeatherApp
+namespace WeatherApp.Core
 {
     public class WeatherService : IWeatherService
     {

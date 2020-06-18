@@ -1,4 +1,4 @@
-﻿namespace WeatherApp.Settings
+﻿namespace WeatherApp.Core.Settings
 {
     public class AppSettings
     {
