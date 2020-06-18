@@ -1,2 +1,2 @@
-# Weather App
-A sample that shows how to leverage .NET Core features like HostBuilder, ServiceProvider and Logging on every supported platforms
+# Weather Applications
+A collection of applications that show how to leverage .NET Core features like HostBuilder, ServiceProvider and Logging on every supported platform
