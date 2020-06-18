@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+
+<form method="get">
+    <div class="form-row align-items-center justify-content-center mt-5">
+        <div class="col-auto">
+            <input type="text" class="form-control" placeholder="Enter a city" asp-for="@Model.City">
+        </div>
+        <div class="col-auto ml-2">
+            <button type="submit" class="btn btn-primary">Get Weather</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Weather != null)
+{
+    <div class="mt-5">
+        <div class="mt-5 card text-center mx-auto" style="width:300px">
+            <img class="card-img-top mx-auto" src="@Model.Weather.ConditionIconUrl" style="width:100px" alt="@Model.Weather.Condition">
+            <div class="card-body">
+                <h6 class="card-text">@Model.Weather.CityName</h6>
+                <h3 class="card-title">@Model.Weather.Condition</h3>
+                <h4 class="card-text">@Model.Weather.Temperature °C</h4>
+            </div>
+        </div>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(Model.City))
+{
+    /* There is a city, but no weather data: there was a problem*/
+    <div class="alert alert-danger mt-5" role="alert">
+        Unable to retrieve weather condition for @Model.City
+    </div>
+}
