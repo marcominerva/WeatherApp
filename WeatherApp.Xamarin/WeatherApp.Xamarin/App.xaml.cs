@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace WeatherApp.Xamarin
 {
@@ -8,9 +10,12 @@ namespace WeatherApp.Xamarin
     {
         public App()
         {
-            InitializeComponent();
+            AppCenter.Start("android={Your Android App secret here};", typeof(Analytics), typeof(Crashes));
 
-            MainPage = new MainPage();
+            InitializeComponent();
+            Host.Init();
+
+            MainPage = Host.ServiceProvider.GetRequiredService<MainPage>();
         }
 
         protected override void OnStart()

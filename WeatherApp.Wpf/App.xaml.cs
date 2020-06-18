@@ -39,13 +39,13 @@ namespace WeatherApp.Wpf
             })
             .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
             {
-                            // The AddTransientHttpErrorPolicy handles errors typical of Http calls:
-                            // Network failures (System.Net.Http.HttpRequestException)
-                            // HTTP 5XX status codes (server errors)
-                            // HTTP 408 status code (request timeout)
-                            TimeSpan.FromSeconds(1),
-                            TimeSpan.FromSeconds(5),
-                            TimeSpan.FromSeconds(10)
+                // The AddTransientHttpErrorPolicy handles errors typical of Http calls:
+                // Network failures (System.Net.Http.HttpRequestException)
+                // HTTP 5XX status codes (server errors)
+                // HTTP 408 status code (request timeout)
+                TimeSpan.FromSeconds(1),
+                TimeSpan.FromSeconds(5),
+                TimeSpan.FromSeconds(10)
             }));
 
             services.AddScoped<IWeatherService, WeatherService>();
