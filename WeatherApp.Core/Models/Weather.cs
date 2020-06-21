@@ -10,7 +10,7 @@ namespace WeatherApp.Core.Models
 
         public string ConditionIcon { get; }
 
-        public string ConditionIconUrl => $"https://openweathermap.org/img/wn/{ConditionIcon}@2x.png";
+        public string ConditionIconUrl => $"https://openweathermap.org/img/w/{ConditionIcon}.png";
 
         public string Condition { get; }
 
