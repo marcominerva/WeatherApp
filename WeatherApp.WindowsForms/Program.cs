@@ -71,7 +71,7 @@ namespace WeatherApp.WindowsForms
                 TimeSpan.FromSeconds(10)
             }));
 
-            services.AddScoped<IWeatherService, WeatherService>();
+            services.AddSingleton<IWeatherService, WeatherService>();
 
             // Register all the Forms of the applications.
             services.AddSingleton<MainForm>();
