@@ -68,7 +68,7 @@ namespace WeatherApp.Xamarin
                 TimeSpan.FromSeconds(10)
             }));
 
-            services.AddScoped<IWeatherService, WeatherService>();
+            services.AddSingleton<IWeatherService, WeatherService>();
 
             // Register all the Windows of the applications.
             services.AddSingleton<MainPage>();
