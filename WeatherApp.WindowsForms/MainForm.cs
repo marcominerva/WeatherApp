@@ -14,7 +14,6 @@ namespace WeatherApp.WindowsForms
             this.weatherService = weatherService;
         }
 
-
         private async void GetWeatherButton_Click(object sender, System.EventArgs e)
         {
             ConditionCityLabel.Text = null;
