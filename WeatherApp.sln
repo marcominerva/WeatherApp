@@ -13,9 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Xamarin.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Xamarin.iOS", "WeatherApp.Xamarin\WeatherApp.Xamarin.iOS\WeatherApp.Xamarin.iOS.csproj", "{FBB83BB2-87F9-4F69-B9EE-EA12CB10CBAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.Xamarin", "WeatherApp.Xamarin\WeatherApp.Xamarin\WeatherApp.Xamarin.csproj", "{A1C0212B-7067-4341-B695-0F66960B6F3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApp.Xamarin", "WeatherApp.Xamarin\WeatherApp.Xamarin\WeatherApp.Xamarin.csproj", "{A1C0212B-7067-4341-B695-0F66960B6F3C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xamarin", "Xamarin", "{20ECD427-6C39-4577-AA23-CBF89AE95C81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp.WindowsForms", "WeatherApp.WindowsForms\WeatherApp.WindowsForms.csproj", "{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +105,18 @@ Global
 		{A1C0212B-7067-4341-B695-0F66960B6F3C}.Release|iPhone.Build.0 = Release|Any CPU
 		{A1C0212B-7067-4341-B695-0F66960B6F3C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{A1C0212B-7067-4341-B695-0F66960B6F3C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Release|iPhone.Build.0 = Release|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{F61E1F1E-1752-4FF0-A665-A88EF6232AD5}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
