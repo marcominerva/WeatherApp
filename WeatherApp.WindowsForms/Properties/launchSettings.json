@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WeatherApp.WindowsForms": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
