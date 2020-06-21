@@ -70,7 +70,7 @@ namespace WeatherApp.Xamarin
 
             services.AddSingleton<IWeatherService, WeatherService>();
 
-            // Register all the Windows of the applications.
+            // Register all the Pages of the applications.
             services.AddSingleton<MainPage>();
         }
     }
