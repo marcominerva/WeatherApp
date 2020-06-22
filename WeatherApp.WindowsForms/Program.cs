@@ -34,20 +34,9 @@ namespace WeatherApp.WindowsForms
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.ApplicationExit += Application_ApplicationExit;
-
-            _ = host.StartAsync();
 
             var mainForm = host.Services.GetRequiredService<MainForm>();
             Application.Run(mainForm);
-        }
-
-        private static async void Application_ApplicationExit(object sender, EventArgs e)
-        {
-            using (host)
-            {
-                await host.StopAsync(TimeSpan.FromSeconds(5));
-            }
         }
 
         private static void ConfigureServices(HostBuilderContext context, IServiceCollection services)
