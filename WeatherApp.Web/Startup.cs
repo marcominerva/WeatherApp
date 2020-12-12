@@ -3,11 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Polly;
 using Serilog;
-using System;
 using WeatherApp.Core;
-using WeatherApp.Core.Settings;
+using WeatherApp.Web.Settings;
 
 namespace WeatherApp.Web
 {
@@ -27,24 +25,12 @@ namespace WeatherApp.Web
 
             var appSettingsSection = Configuration.GetSection(nameof(AppSettings));
             var appSettings = appSettingsSection.Get<AppSettings>();
-            services.Configure<AppSettings>(appSettingsSection);
 
-            services.AddHttpClient(nameof(WeatherService)).ConfigureHttpClient(client =>
+            services.AddOpenWeatherMap(options =>
             {
-                client.BaseAddress = new Uri(appSettings.OpenWeatherMapUrl);
-            })
-            .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
-            {
-                // The AddTransientHttpErrorPolicy handles errors typical of Http calls:
-                // Network failures (System.Net.Http.HttpRequestException)
-                // HTTP 5XX status codes (server errors)
-                // HTTP 408 status code (request timeout)
-                TimeSpan.FromSeconds(1),
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(10)
-            }));
-
-            services.AddScoped<IWeatherService, WeatherService>();
+                options.ApiKey = appSettings.OpenWeatherMapApiKey;
+                options.ServiceUrl = appSettings.OpenWeatherMapUrl;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

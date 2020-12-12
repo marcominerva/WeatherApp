@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Media.Imaging;
 using WeatherApp.Core;
+using WeatherApp.Core.Models;
+using WeatherApp.Core.Models.OpenWeatherMap;
 
 namespace WeatherApp.Wpf
 {
@@ -25,9 +27,12 @@ namespace WeatherApp.Wpf
 
             if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
             {
-                var weather = await weatherService.GetWeatherAsync(CityTextBox.Text);
-                if (weather != null)
+                var currentWeatherResponse =
+                    await weatherService.GetWeatherAsync(CityTextBox.Text);
+
+                if (currentWeatherResponse.IsSuccessStatusCode)
                 {
+                    var weather = new Weather(currentWeatherResponse.Content);
                     ConditionCityTextBlock.Text = weather.CityName;
                     ConditionImage.Source = new BitmapImage(new Uri(weather.ConditionIconUrl));
                     ConditionTextBlock.Text = weather.Condition;
@@ -35,7 +40,8 @@ namespace WeatherApp.Wpf
                 }
                 else
                 {
-                    MessageBox.Show($"Unable to retrieve weather codition for {CityTextBox.Text}.", "Weather Client", MessageBoxButton.OK, MessageBoxImage.Error);
+                    var error = await currentWeatherResponse.Error.GetContentAsAsync<Error>();
+                    MessageBox.Show($"Unable to retrieve weather codition for {CityTextBox.Text}: {error.Message}.", "Weather Client", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

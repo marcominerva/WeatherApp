@@ -1,5 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
 using WeatherApp.Core;
+using WeatherApp.Core.Models.OpenWeatherMap;
 
 namespace WeatherApp.WindowsForms
 {
@@ -14,7 +17,7 @@ namespace WeatherApp.WindowsForms
             this.weatherService = weatherService;
         }
 
-        private async void GetWeatherButton_Click(object sender, System.EventArgs e)
+        private async void GetCurrentWeatherButton_Click(object sender, EventArgs e)
         {
             ConditionCityLabel.Text = null;
             ConditionImage.Image = null;
@@ -23,17 +26,21 @@ namespace WeatherApp.WindowsForms
 
             if (!string.IsNullOrWhiteSpace(CityTextBox.Text))
             {
-                var weather = await weatherService.GetWeatherAsync(CityTextBox.Text);
-                if (weather != null)
+                var currentWeatherResponse =
+                    await weatherService.GetWeatherAsync(CityTextBox.Text);
+
+                if (currentWeatherResponse.IsSuccessStatusCode)
                 {
-                    ConditionCityLabel.Text = weather.CityName;
-                    ConditionImage.Load(weather.ConditionIconUrl);
-                    ConditionLabel.Text = weather.Condition;
-                    TemperatureLabel.Text = $"{weather.Temperature} °C";
+                    var weather = currentWeatherResponse.Content;
+                    ConditionCityLabel.Text = weather.Name;
+                    ConditionImage.Load($"https://openweathermap.org/img/w/{weather.Conditions.First().ConditionIcon}.png");
+                    ConditionLabel.Text = weather.Conditions.First().Description;
+                    TemperatureLabel.Text = $"{weather.Detail.Temperature} °C";
                 }
                 else
                 {
-                    MessageBox.Show($"Unable to retrieve weather codition for {CityTextBox.Text}.", "Weather Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var error = await currentWeatherResponse.Error.GetContentAsAsync<Error>();
+                    MessageBox.Show($"Unable to retrieve weather codition for {CityTextBox.Text}: {error.Message}.", "Weather Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

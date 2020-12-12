@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WeatherApp.Mobile.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="ConditionTextBlockStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid
+        Padding="10"
+        ColumnDefinitions="Auto, *, Auto"
+        RowDefinitions="Auto, *">
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="City:" />
+        <Entry
+            x:Name="CityEntry"
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalOptions="Fill" />
+
+        <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Margin="5"
+            Padding="10"
+            Clicked="Button_Clicked"
+            HorizontalOptions="Start"
+            Text="Get Weather" />
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <StackLayout>
+                <Label x:Name="ConditionCityLabel" Style="{StaticResource ConditionTextBlockStyle}" />
+                <Image
+                    x:Name="ConditionImage"
+                    HeightRequest="100"
+                    WidthRequest="100" />
+                <Label x:Name="ConditionLabel" Style="{StaticResource ConditionTextBlockStyle}" />
+                <Label x:Name="TemperatureLabel" Style="{StaticResource ConditionTextBlockStyle}" />
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

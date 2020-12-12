@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
-using WeatherApp.Core.Models;
+﻿using Refit;
+using System.Threading;
+using System.Threading.Tasks;
+using WeatherApp.Core.Models.OpenWeatherMap;
 
 namespace WeatherApp.Core
 {
     public interface IWeatherService
     {
-        Task<Weather> GetWeatherAsync(string city);
+        Task<ApiResponse<CurrentWeather>> GetWeatherAsync([AliasAs("q")] string city,
+            CancellationToken cancellationToken = default);
     }
 }
