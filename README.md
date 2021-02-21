@@ -1,6 +1,6 @@
 # Weather App
 
-A collection of applications that show how to leverage .NET 5.0 features like HostBuilder, ServiceProvider and Logging (using [Serilog](https://github.com/serilog/serilog)) on every supported platform:
+A collection of applications that show how to leverage .NET 5.0 features like HostBuilder, ServiceProvider, Logging (using [Serilog](https://github.com/serilog/serilog)) and Cache on every supported platform:
 
 * ASP.NET Core
 * WPF
