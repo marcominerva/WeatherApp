@@ -22,6 +22,10 @@ namespace WeatherApp.WindowsForms
             Application.SetCompatibleTextRenderingDefault(false);
 
             var host = Host.CreateDefaultBuilder()
+                .UseDefaultServiceProvider((context, options) =>
+                {
+                    options.ValidateScopes = false;
+                })
                 .UseSerilog((hostingContext, loggerConfiguration) =>
                 {
                     loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);

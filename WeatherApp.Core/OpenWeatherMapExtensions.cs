@@ -2,7 +2,6 @@
 using Polly;
 using Refit;
 using System;
-using System.Text.Json;
 using WeatherApp.Core.Handlers;
 
 namespace WeatherApp.Core
@@ -16,10 +15,7 @@ namespace WeatherApp.Core
 
             services.AddMemoryCache();
 
-            services.AddRefitClient<IOpenWeatherMapApi>(new RefitSettings
-            {
-                ContentSerializer = new SystemTextJsonContentSerializer(new JsonSerializerOptions(JsonSerializerDefaults.Web))
-            })
+            services.AddRefitClient<IOpenWeatherMapApi>()
             .ConfigureHttpClient(client =>
             {
                 client.BaseAddress = new Uri(settings.ServiceUrl);
@@ -35,10 +31,6 @@ namespace WeatherApp.Core
             })
             .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(new[]
             {
-                // The AddTransientHttpErrorPolicy handles errors typical of Http calls:
-                // Network failures (System.Net.Http.HttpRequestException)
-                // HTTP 5XX status codes (server errors)
-                // HTTP 408 status code (request timeout)
                 TimeSpan.FromSeconds(1),
                 TimeSpan.FromSeconds(5),
                 TimeSpan.FromSeconds(10)

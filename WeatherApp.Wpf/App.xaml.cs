@@ -15,14 +15,15 @@ namespace WeatherApp.Wpf
         public App()
         {
             host = Host.CreateDefaultBuilder()
+                .UseDefaultServiceProvider((context, options) =>
+                {
+                    options.ValidateScopes = false;
+                })
                 .UseSerilog((hostingContext, loggerConfiguration) =>
                 {
                     loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
                 })
-                .ConfigureServices((context, services) =>
-                {
-                    ConfigureServices(context, services);
-                })
+                .ConfigureServices(ConfigureServices)
                 .Build();
         }
 
